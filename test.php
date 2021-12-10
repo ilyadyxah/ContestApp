@@ -4,4 +4,3 @@ function vardump($var) {
     var_dump($var);
     echo '</pre>';
 }
-$text = $_REQUEST['text'];
