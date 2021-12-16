@@ -1,5 +1,4 @@
 <?php
-require_once ("test.php");
 
 $var = json_decode(file_get_contents('php://input'), true);
 $text = $var['text'];
@@ -79,7 +78,7 @@ $actor = "\xFF\xFE".iconv("UTF-8","UCS-2LE",$actor);
 if ($matches[1][0] === 0 || is_null($matches[1][0])) {
     echo $matches[1][0];
     echo 'Ошибка Word' . "\n";
-    vardump($matches);
+    print_r($matches);
     die('Загрузка не удалась');
 }
 else  {

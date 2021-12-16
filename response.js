@@ -19,7 +19,6 @@ function myFunction (event) {
             url = url3;
             break;
     }
-    console.log(url)
     let form_text = form.elements.text.value;
     let form_mesto = form.elements.mesto.value;
     let data = {
