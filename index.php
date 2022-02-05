@@ -16,13 +16,14 @@
 </head>
 <body style="display: flex; margin: 0 10px">
     <div style="margin: 0 10px">
-        <form action="word.php" method="post" accept-charset="UTF-8" style="display: flex; flex-direction: column; align-items: center">
+        <form action="olympiads/word.php" method="post" accept-charset="UTF-8" style="display: flex; flex-direction: column; align-items: center">
             <textarea name="text" id="txt" cols="70" rows="40" style="background-color: bisque"></textarea>
             <input type="text" name="mesto" placeholder="Введите место" style="width: 120px; height: 30px">
             <div>
                 <input name="btn_wtheme" type="button" value="Без темы" class="response1" style="width: 163px; height: 30px">
                 <input name="btn_word" type="button" value="Word" class="response2" style="width: 163px; height: 30px">
                 <input name="btn_theme" type="button" value="С темой" class="response3" style="width: 163px; height: 30px">
+                <input name="btn_theme" type="button" value="Рояль mail" class="response4" style="width: 163px; height: 30px">
             </div>
 
         </form>

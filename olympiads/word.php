@@ -1,8 +1,9 @@
 <?php
+require_once '../artFunctions.php';
+require_once 'config.php';
 
-$var = json_decode(file_get_contents('php://input'), true);
-$text = $var['text'];
-$file = 'C:\Users\Admin\Desktop\ARTVICTORY\Олимпиады\Auto\dominanta.txt';
+$id = 3;
+$name = "Word";
 $regular = "/Олимпиада\s(.*)Тема.*\s(.*)Ф.И.О.*возраст\s(.*)Ф.И.*ля\s(.*)Ф.И.*же\s(.*)Контакт.*пункт\)\s(.*)Н.*краткое\):\s(.*)Адрес.*дипломы\s(.*)\s1/sU";
 preg_match_all($regular, $text, $matches, PREG_UNMATCHED_AS_NULL);
 $actor = "\n";
@@ -31,22 +32,7 @@ for ($i = 1; $i < count($matches); $i++) {
         case '2':
             $actor .= $matches[$i][0] . "\t"; // ТЕМА
             $actor .= "\t"; // Вручается
-            if (isset($var['mesto'])){
-                switch ($var['mesto']) {
-                    case '1':
-                        $actor .=  'ЛАУРЕАТА  I  СТЕПЕНИ' . "\t"; // Место
-                        break;
-                    case '2':
-                        $actor .=  'ЛАУРЕАТА  II  СТЕПЕНИ' . "\t"; //  Место
-                        break;
-                    case '3':
-                        $actor .=  'ЛАУРЕАТА  III  СТЕПЕНИ' . "\t"; //  Место
-                        break;
-                }
-            }
-            else {
-                $actor .=  'место?' . "\t"; // Место
-            }
+            $actor .= artFunctions::mesto($var);
             break;
         case '3':
             $actor .= $matches[$i][0] . "\t"; // ФИО участника
@@ -71,19 +57,5 @@ for ($i = 1; $i < count($matches); $i++) {
             break;
     }
 }
-$actor = preg_replace('/\n/', '', $actor);
-$actor = preg_replace('/\r/', '', $actor);
-$actor .= "\n";
-$actor = "\xFF\xFE".iconv("UTF-8","UCS-2LE",$actor);
-if ($matches[1][0] === 0 || is_null($matches[1][0])) {
-    echo $matches[1][0];
-    echo 'Ошибка Word' . "\n";
-    print_r($matches);
-    die('Загрузка не удалась');
-}
-else  {
-    echo 'Заявка Word загружена';
-    echo '<br>';
-    echo $matches[3][0];
-    file_put_contents($file, $actor, FILE_APPEND);
-}
+
+artFunctions::save($actor, $matches, $file, $name, $id);

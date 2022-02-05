@@ -1,12 +1,14 @@
 document.querySelector('.response1').addEventListener('click', myFunction);
 document.querySelector('.response2').addEventListener('click', myFunction);
 document.querySelector('.response3').addEventListener('click', myFunction);
+document.querySelector('.response4').addEventListener('click', myFunction);
 
 function myFunction (event) {
     let url;
-    let url1 = 'mail_dominanta.php';
-    let url2 = 'word.php';
-    let url3 = 'other.php';
+    let url1 = 'olympiads/mail_dominanta.php';
+    let url2 = 'olympiads/word.php';
+    let url3 = 'olympiads/other.php';
+    let url4 = 'konkursy/other.php';
     let form = document.forms[0];
     switch (event.target.name) {
         case form.elements[2].name:
@@ -17,6 +19,9 @@ function myFunction (event) {
             break;
         case form.elements[4].name:
             url = url3;
+            break;
+        case form.elements[5].name:
+            url = url4;
             break;
     }
     let form_text = form.elements.text.value;
