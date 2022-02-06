@@ -4,7 +4,7 @@ require_once 'config.php';
 
 $id = 3;
 $name = "Word";
-$regular = "/Олимпиада\s(.*)Тема.*\s(.*)Ф.И.О.*возраст\s(.*)Ф.И.*ля\s(.*)Ф.И.*же\s(.*)Контакт.*пункт\)\s(.*)Н.*краткое\):\s(.*)Адрес.*дипломы\s(.*)\s1/sU";
+$regular = "/Олимпиада\s(.*)Тема.*музыки\)\s(.*)Ф.И.О.*возраст\s(.*)Ф.И.*ля\s(.*)Ф.И.*же\s(.*)Контакт.*пункт\)\s(.*)Н.*краткое\):\s(.*)Адрес.*дипломы\s(.*)\s1/sU";
 preg_match_all($regular, $text, $matches, PREG_UNMATCHED_AS_NULL);
 $actor = "\n";
 $matchesTemp = $matches;
@@ -57,5 +57,4 @@ for ($i = 1; $i < count($matches); $i++) {
             break;
     }
 }
-
 artFunctions::save($actor, $matches, $file, $name, $id);

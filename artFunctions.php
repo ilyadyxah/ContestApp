@@ -26,7 +26,7 @@ class artFunctions
         $actor = "\xFF\xFE" . iconv("UTF-8", "UCS-2LE", $actor);
 
         if ($matches[1][0] === 0 || is_null($matches[1][0])) {
-            echo 'Ошибка mail(с темой)';
+            echo "Ошибка $name";
             echo $matches[1][0];
             print_r($matches);
             die('Загрузка не удалась');
@@ -37,4 +37,5 @@ class artFunctions
             file_put_contents($file, $actor, FILE_APPEND);
         }
     }
+
 }
