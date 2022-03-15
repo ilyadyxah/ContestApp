@@ -17,9 +17,9 @@
 </head>
 <body style="display: flex; margin: 0 10px">
     <div style="margin: 0 10px">
-        <form action="olympiads/word.php" method="post" accept-charset="UTF-8" style="display: flex; flex-direction: column; align-items: center">
+        <form action="Olympiads/word.php" method="post" accept-charset="UTF-8" style="display: flex; flex-direction: column; align-items: center">
             <textarea name="text" class="form-control" id="txt" cols="80" rows="25" style="background-color: bisque"></textarea>
-            <input type="text" class="form-control" name="mesto" placeholder="Введите место">
+            <input type="text" class="form-control" name="place" placeholder="Введите место">
             <select name="age" class="form-select">
                 <option disabled selected>Выберите возрастную категорию</option>
                 <option value="возрастная категория: до 7 лет (включительно)"> до 7 (включительно)</option>
@@ -56,8 +56,8 @@
     </div>
 
 </body>
-<script src="olympiads/response.js"></script>
-<script src="konkursy/response.js"></script>
+<script src="Olympiads/response.js"></script>
+<script src="Contests/response.js"></script>
 </html>
 
 
