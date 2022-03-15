@@ -1,30 +1,28 @@
-document.querySelector('.response1').addEventListener('click', myFunction);
-document.querySelector('.response2').addEventListener('click', myFunction);
-document.querySelector('.response3').addEventListener('click', myFunction);
+document.querySelector('.response4').addEventListener('click', myFunction);
+document.querySelector('.response5').addEventListener('click', myFunction);
 
 function myFunction (event) {
     let url;
-    let url1 = 'mail_dominanta.php';
-    let url2 = 'word.php';
-    let url3 = 'other.php';
+    let url1 = 'Contests/mailRoyal.php';
+    let url2 = 'Contests/wordRoyal.php';
     let form = document.forms[0];
     switch (event.target.name) {
-        case form.elements[2].name:
+        case form.elements[7].name:
             url = url1;
             break;
-        case form.elements[3].name:
+        case form.elements[8].name:
             url = url2;
             break;
-        case form.elements[4].name:
-            url = url3;
-            break;
     }
-    console.log(url)
     let form_text = form.elements.text.value;
-    let form_mesto = form.elements.mesto.value;
+    let form_place = form.elements.place.value;
+    let form_age = form.elements.age.value;
+    let form_nominate = form.elements.nominate.value;
     let data = {
         text : form_text,
-        mesto : form_mesto
+        place : form_place,
+        age : form_age,
+        nominate: form_nominate
     };
     postData(url, data)
         .then((data) => {
